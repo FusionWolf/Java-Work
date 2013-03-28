@@ -17,13 +17,13 @@ public class SocketReceive implements Runnable {
 
     // Ran when the thread is started.
     public void run() {
-        ReceiveData();
+        receiveData();
     }
 
     // This method tries to receive any data coming from the client's input stream.
     // It stores that data in a string and prints it out to the user...
     // TODO: Figure out how to send byte arrays...
-    private void ReceiveData() {
+    private void receiveData() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(acceptedSocket.getInputStream()));
             String temp = bufferedReader.readLine();

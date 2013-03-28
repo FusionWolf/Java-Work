@@ -19,12 +19,12 @@ public class SocketConnect implements Runnable {
     public void run() {
         // We want to continue to accept new connections, so don't let this loop end.
         while(true)
-            AcceptSocket();
+            acceptSocket();
     }
 
     // Tries to accept any connections and then begins the SocketReceive thread
     // and passes it the new connection.
-    private void AcceptSocket() {
+    private void acceptSocket() {
         try {
             System.out.println("Waiting to accept a new connection.");
             socket = serverSocket.accept();
