@@ -27,7 +27,14 @@ public class SocketReceive implements Runnable {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(acceptedSocket.getInputStream()));
             String temp = bufferedReader.readLine();
-            System.out.println(temp);
+
+            char[] data = temp.toCharArray();
+
+            if (data.length >= 4)
+                PacketHandler.handle(data);
+            else {
+                System.out.println("Invalid packet length.");
+            }
         }
         catch (Exception ex) {
             System.out.println(ex);
