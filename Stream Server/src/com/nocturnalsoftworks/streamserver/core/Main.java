@@ -11,6 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+            scanner = new Scanner(System.in);
+
             serverSocket = new ServerSocket(2882); // Initialize the server socket.
 
             // Create a new Thread and have it run a new instance of the SocketConnect class
@@ -22,6 +24,7 @@ public class Main {
                 scanner.nextLine();
         }
         catch (Exception ex) {
+            System.out.println("Exception thrown in the Main class.");
             System.out.println(ex);
         }
     }

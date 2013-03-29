@@ -17,7 +17,8 @@ public class SocketReceive implements Runnable {
 
     // Ran when the thread is started.
     public void run() {
-        receiveData();
+        while (acceptedSocket != null)
+            receiveData();
     }
 
     // This method tries to receive any data coming from the client's input stream.
@@ -25,7 +26,7 @@ public class SocketReceive implements Runnable {
     // TODO: Figure out how to send byte arrays...
     private void receiveData() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(acceptedSocket.getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(acceptedSocket.getInputStream(), "UTF-8"));
             String temp = bufferedReader.readLine();
 
             char[] data = temp.toCharArray();
@@ -37,7 +38,19 @@ public class SocketReceive implements Runnable {
             }
         }
         catch (Exception ex) {
+            closeSocket(acceptedSocket);
             System.out.println(ex);
         }
+    }
+
+    private void closeSocket(Socket socket) {
+
+        try {
+            acceptedSocket.close();
+            acceptedSocket = null;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

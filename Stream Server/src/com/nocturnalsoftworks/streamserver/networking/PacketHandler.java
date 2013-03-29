@@ -23,7 +23,7 @@ public class PacketHandler {
 
         String temp = "";
         for (int x = 0; x < 4; x++) {
-            temp += x;
+            temp += packet[x];
         }
 
         packetType = Conversion.tryParseShort(temp);
