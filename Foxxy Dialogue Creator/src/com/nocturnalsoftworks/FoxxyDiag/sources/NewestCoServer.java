@@ -4,7 +4,7 @@ import com.nocturnalsoftworks.FoxxyDiag.core.Main;
 
 import java.util.ArrayList;
 import java.util.List;
-
+prompt("Sup my Jhawke xD);
 public class NewestCoServer extends Source {
     // REGION: Source class variables
     private static String npcText;
